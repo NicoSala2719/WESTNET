@@ -614,6 +614,139 @@
     .slogan-principal { padding: 16px 24px; }
     .pie { flex-direction: column; text-align: center; }
     .pie-contacto { text-align: center; }
+    .mascots-portada { flex-direction: column; gap: 10px; }
+    .mascot-portada-figure { width: 120px; }
+  }
+
+  /* ====== MASCOTAS ====== */
+  .mascots-portada {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    gap: 24px;
+    margin-top: 32px;
+    position: relative;
+    z-index: 3;
+  }
+  .mascot-portada-figure {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    width: 160px;
+  }
+  .mascot-portada-figure svg {
+    filter: drop-shadow(0 8px 24px rgba(0,0,0,0.35));
+    animation: mascotFloat 3s ease-in-out infinite;
+  }
+  .mascot-portada-figure:last-child svg {
+    animation-delay: 1.5s;
+  }
+  @keyframes mascotFloat {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+  }
+  .mascot-portada-label {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 800;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    text-align: center;
+  }
+  .mascot-portada-brand {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.95);
+  }
+
+  /* Banners de mascotas dentro del fixture */
+  .mascot-banner {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2a2a2a 100%);
+    overflow: hidden;
+    position: relative;
+    min-height: 110px;
+    margin-top: 2px;
+    border-left: 4px solid var(--coral);
+  }
+  .mascot-banner.banner-celeste {
+    background: linear-gradient(135deg, #0a1f4e 0%, #1a3a7a 100%);
+    border-left-color: #75AADB;
+  }
+  .mascot-banner.banner-duo {
+    background: linear-gradient(135deg, #1a0a22 0%, #2d1545 100%);
+    border-left-color: var(--oro);
+  }
+  .mascot-banner-mascot {
+    flex-shrink: 0;
+    padding: 0 8px 0 16px;
+    display: flex;
+    align-items: flex-end;
+  }
+  .mascot-banner-mascot svg {
+    filter: drop-shadow(0 4px 12px rgba(0,0,0,0.5));
+  }
+  .mascot-banner-text {
+    flex: 1;
+    padding: 16px 20px;
+  }
+  .mascot-banner-grito {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.4rem, 4vw, 2.2rem);
+    letter-spacing: 0.08em;
+    line-height: 1;
+    color: var(--blanco);
+    margin-bottom: 4px;
+  }
+  .mascot-banner-grito .highlight { color: var(--oro); }
+  .mascot-banner-grito .highlight-celeste { color: #75AADB; }
+  .mascot-banner-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.5);
+  }
+  .mascot-banner-logos {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    padding: 12px 20px 12px 0;
+    flex-shrink: 0;
+  }
+  .mascot-brand-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.3rem;
+    letter-spacing: 0.1em;
+    color: rgba(255,255,255,0.9);
+    line-height: 1;
+  }
+  .mascot-brand-tag small {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+  }
+  .noova-tag {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.1rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.7);
+  }
+  @media (max-width: 700px) {
+    .mascot-banner { min-height: 90px; }
+    .mascot-banner-mascot svg { width: 70px !important; height: auto !important; }
+    .mascot-banner-logos { display: none; }
   }
 </style>
 </head>
@@ -668,6 +801,124 @@
       <span class="sep">·</span>
       48 selecciones
     </div>
+
+    <!-- MASCOTAS PORTADA -->
+    <div class="mascots-portada">
+      <!-- ZORRA WESTNET - brazos levantados celebrando -->
+      <div class="mascot-portada-figure">
+        <svg width="150" height="200" viewBox="0 0 150 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cuerpo con camiseta albiceleste -->
+          <ellipse cx="75" cy="145" rx="32" ry="38" fill="#75AADB"/>
+          <!-- Rayas celestes -->
+          <rect x="43" y="115" width="6" height="68" rx="2" fill="#4A8FC0"/>
+          <rect x="55" y="115" width="6" height="68" rx="2" fill="#4A8FC0"/>
+          <rect x="67" y="115" width="6" height="68" rx="2" fill="#4A8FC0"/>
+          <rect x="79" y="115" width="6" height="68" rx="2" fill="#4A8FC0"/>
+          <rect x="91" y="115" width="6" height="68" rx="2" fill="#4A8FC0"/>
+          <rect x="103" y="115" width="6" height="68" rx="2" fill="#4A8FC0"/>
+          <!-- Logo AFA en el pecho -->
+          <circle cx="75" cy="135" r="8" fill="white" opacity="0.9"/>
+          <text x="75" y="138" font-family="Arial" font-size="6" font-weight="bold" fill="#75AADB" text-anchor="middle">AFA</text>
+          <!-- Cabeza de zorra -->
+          <ellipse cx="75" cy="85" rx="28" ry="26" fill="#D4521A"/>
+          <!-- Orejas puntiagudas -->
+          <polygon points="52,68 45,45 63,62" fill="#D4521A"/>
+          <polygon points="52,68 47,50 60,65" fill="#E8724A"/>
+          <polygon points="98,68 105,45 87,62" fill="#D4521A"/>
+          <polygon points="98,68 103,50 90,65" fill="#E8724A"/>
+          <!-- Auriculares verdes -->
+          <rect x="42" y="72" width="9" height="18" rx="4" fill="#28B463"/>
+          <rect x="99" y="72" width="9" height="18" rx="4" fill="#28B463"/>
+          <path d="M 47 74 Q 75 55 103 74" stroke="#28B463" stroke-width="4" fill="none"/>
+          <!-- Cara -->
+          <ellipse cx="75" cy="91" rx="16" ry="12" fill="#F5C18A"/>
+          <!-- Ojos felices -->
+          <ellipse cx="64" cy="82" rx="5" ry="5" fill="white"/>
+          <ellipse cx="86" cy="82" rx="5" ry="5" fill="white"/>
+          <circle cx="65" cy="83" r="3" fill="#222"/>
+          <circle cx="87" cy="83" r="3" fill="#222"/>
+          <circle cx="66" cy="82" r="1" fill="white"/>
+          <circle cx="88" cy="82" r="1" fill="white"/>
+          <!-- Nariz -->
+          <ellipse cx="75" cy="90" rx="4" ry="2.5" fill="#8B3A1A"/>
+          <!-- Boca sonriendo -->
+          <path d="M 67 95 Q 75 102 83 95" stroke="#8B3A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- Brazos levantados celebrando -->
+          <path d="M 43 125 Q 25 105 18 85" stroke="#D4521A" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <ellipse cx="16" cy="81" rx="7" ry="7" fill="#F5C18A"/>
+          <path d="M 107 125 Q 125 105 132 85" stroke="#D4521A" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <ellipse cx="134" cy="81" rx="7" ry="7" fill="#F5C18A"/>
+          <!-- Piernas -->
+          <rect x="56" y="178" width="14" height="16" rx="4" fill="#4A8FC0"/>
+          <rect x="80" y="178" width="14" height="16" rx="4" fill="#4A8FC0"/>
+          <ellipse cx="63" cy="194" rx="10" ry="5" fill="#222"/>
+          <ellipse cx="87" cy="194" rx="10" ry="5" fill="#222"/>
+          <!-- Bocadillo "¡VAMOS!" -->
+          <rect x="110" y="60" width="55" height="22" rx="10" fill="white" opacity="0.95"/>
+          <polygon points="115,82 108,90 122,82" fill="white" opacity="0.95"/>
+          <text x="137" y="75" font-family="Arial Black, Arial" font-size="9" font-weight="900" fill="#D93050" text-anchor="middle">¡VAMOS!</text>
+        </svg>
+        <div class="mascot-portada-label">Tu zorra de</div>
+        <div class="mascot-portada-brand">WESTNET</div>
+      </div>
+
+      <!-- ASTRONAUTA NOOVA TV - pulgar arriba -->
+      <div class="mascot-portada-figure">
+        <svg width="150" height="200" viewBox="0 0 150 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <!-- Cuerpo traje astronauta con camiseta argentina -->
+          <ellipse cx="75" cy="150" rx="34" ry="36" fill="white"/>
+          <!-- Rayas celestes en el traje -->
+          <rect x="41" y="120" width="5" height="66" rx="2" fill="#75AADB" opacity="0.6"/>
+          <rect x="52" y="120" width="5" height="66" rx="2" fill="#75AADB" opacity="0.6"/>
+          <rect x="63" y="120" width="5" height="66" rx="2" fill="#75AADB" opacity="0.6"/>
+          <rect x="74" y="120" width="5" height="66" rx="2" fill="#75AADB" opacity="0.6"/>
+          <rect x="85" y="120" width="5" height="66" rx="2" fill="#75AADB" opacity="0.6"/>
+          <rect x="96" y="120" width="5" height="66" rx="2" fill="#75AADB" opacity="0.6"/>
+          <rect x="107" y="120" width="5" height="66" rx="2" fill="#75AADB" opacity="0.6"/>
+          <!-- Logo NOOVA en pecho -->
+          <rect x="58" y="138" width="34" height="14" rx="3" fill="#111"/>
+          <text x="75" y="149" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">NOOVA</text>
+          <!-- Casco -->
+          <circle cx="75" cy="82" r="34" fill="#E8E8E8"/>
+          <circle cx="75" cy="82" r="30" fill="#1A1A1A"/>
+          <!-- Visor brillante -->
+          <ellipse cx="75" cy="84" rx="22" ry="20" fill="#0D0D0D"/>
+          <ellipse cx="68" cy="77" rx="8" ry="6" fill="white" opacity="0.15"/>
+          <!-- Cara dentro del casco -->
+          <ellipse cx="65" cy="82" rx="4.5" ry="5" fill="white"/>
+          <ellipse cx="85" cy="82" rx="4.5" ry="5" fill="white"/>
+          <circle cx="66" cy="83" r="3" fill="#222"/>
+          <circle cx="86" cy="83" r="3" fill="#222"/>
+          <circle cx="67" cy="82" r="1" fill="white"/>
+          <circle cx="87" cy="82" r="1" fill="white"/>
+          <path d="M 66 92 Q 75 99 84 92" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+          <!-- Antena del casco -->
+          <line x1="75" y1="48" x2="75" y2="38" stroke="#E8E8E8" stroke-width="3"/>
+          <circle cx="75" cy="35" r="5" fill="#D93050"/>
+          <!-- Brazo izquierdo levantado - pulgar arriba -->
+          <path d="M 41 135 Q 20 115 15 90" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <!-- Mano con pulgar arriba -->
+          <ellipse cx="14" cy="84" rx="9" ry="9" fill="white"/>
+          <rect x="7" y="76" width="6" height="10" rx="3" fill="white"/>
+          <line x1="10" y1="76" x2="10" y2="68" stroke="white" stroke-width="5" stroke-linecap="round"/>
+          <!-- Brazo derecho -->
+          <path d="M 109 135 Q 120 150 118 165" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+          <ellipse cx="116" cy="170" rx="8" ry="8" fill="white"/>
+          <!-- Piernas traje -->
+          <rect x="54" y="181" width="16" height="16" rx="5" fill="#D0D0D0"/>
+          <rect x="80" y="181" width="16" height="16" rx="5" fill="#D0D0D0"/>
+          <ellipse cx="62" cy="197" rx="11" ry="5" fill="#999"/>
+          <ellipse cx="88" cy="197" rx="11" ry="5" fill="#999"/>
+          <!-- Bocadillo "¡ARG!" -->
+          <rect x="-14" y="58" width="46" height="22" rx="10" fill="white" opacity="0.95"/>
+          <polygon points="30,80 38,90 22,80" fill="white" opacity="0.95"/>
+          <text x="10" y="73" font-family="Arial Black, Arial" font-size="9" font-weight="900" fill="#0a1f4e" text-anchor="middle">¡ARG!</text>
+        </svg>
+        <div class="mascot-portada-label">Tu amigo de</div>
+        <div class="mascot-portada-brand">NOOVA TV</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -732,6 +983,56 @@
   <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Arabia Saudita 🇸🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇺🇾 Uruguay</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
   <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">Irán 🇮🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇳🇿 Nueva Zelanda</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
 
+  <!-- MASCOTA BANNER 1: Zorra + Astronauta antes del primer partido de Argentina -->
+  <div class="mascot-banner banner-celeste">
+    <div class="mascot-banner-mascot">
+      <svg width="90" height="105" viewBox="0 0 150 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="75" cy="130" rx="32" ry="35" fill="#75AADB"/>
+        <rect x="43" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="55" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="67" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="79" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="91" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="103" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <circle cx="75" cy="122" r="8" fill="white" opacity="0.9"/>
+        <text x="75" y="125.5" font-family="Arial" font-size="6" font-weight="bold" fill="#75AADB" text-anchor="middle">AFA</text>
+        <ellipse cx="75" cy="75" rx="28" ry="26" fill="#D4521A"/>
+        <polygon points="52,58 45,35 63,52" fill="#D4521A"/>
+        <polygon points="52,58 47,40 60,55" fill="#E8724A"/>
+        <polygon points="98,58 105,35 87,52" fill="#D4521A"/>
+        <polygon points="98,58 103,40 90,55" fill="#E8724A"/>
+        <rect x="42" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <rect x="99" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <path d="M 47 64 Q 75 45 103 64" stroke="#28B463" stroke-width="4" fill="none"/>
+        <ellipse cx="75" cy="81" rx="16" ry="12" fill="#F5C18A"/>
+        <ellipse cx="64" cy="72" rx="5" ry="5" fill="white"/>
+        <ellipse cx="86" cy="72" rx="5" ry="5" fill="white"/>
+        <circle cx="65" cy="73" r="3" fill="#222"/>
+        <circle cx="87" cy="73" r="3" fill="#222"/>
+        <circle cx="66" cy="72" r="1" fill="white"/>
+        <circle cx="88" cy="72" r="1" fill="white"/>
+        <ellipse cx="75" cy="80" rx="4" ry="2.5" fill="#8B3A1A"/>
+        <path d="M 67 85 Q 75 92 83 85" stroke="#8B3A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 43 115 Q 22 98 15 73" stroke="#D4521A" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="13" cy="69" rx="7" ry="7" fill="#F5C18A"/>
+        <path d="M 107 115 Q 128 98 135 73" stroke="#D4521A" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="137" cy="69" rx="7" ry="7" fill="#F5C18A"/>
+        <rect x="56" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+        <rect x="80" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+        <ellipse cx="63" cy="172" rx="10" ry="4" fill="#222"/>
+        <ellipse cx="87" cy="172" rx="10" ry="4" fill="#222"/>
+      </svg>
+    </div>
+    <div class="mascot-banner-text">
+      <div class="mascot-banner-grito">HOY DEBUTA <span class="highlight-celeste">LA SCALONETA 🇦🇷</span></div>
+      <div class="mascot-banner-sub">Westnet &amp; Noova TV — Primera fecha del Grupo J · 22:00 hs ARG</div>
+    </div>
+    <div class="mascot-banner-logos">
+      <div class="mascot-brand-tag">WESTNET<small>Internet Banda Ancha</small></div>
+      <div class="noova-tag">+ NOOVA TV</div>
+    </div>
+  </div>
+
   <div class="fecha-header"><span class="fecha-dia">Martes 16 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
   <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Francia 🇫🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇸🇳 Senegal</div><div class="partido-meta"><div class="partido-grupo">Grupo I</div></div></div>
   <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Irak 🇮🇶</div><div class="vs">VS</div><div class="partido-equipo away">🇳🇴 Noruega</div><div class="partido-meta"><div class="partido-grupo">Grupo I</div></div></div>
@@ -769,6 +1070,54 @@
   <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Uruguay 🇺🇾</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇻 Cabo Verde</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
   <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">Nueva Zelanda 🇳🇿</div><div class="vs">VS</div><div class="partido-equipo away">🇪🇬 Egipto</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
 
+  <!-- MASCOTA BANNER 2: Astronauta Noova antes del 2do partido de Argentina -->
+  <div class="mascot-banner">
+    <div class="mascot-banner-mascot">
+      <svg width="90" height="105" viewBox="0 0 150 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="75" cy="138" rx="34" ry="33" fill="white"/>
+        <rect x="41" y="112" width="5" height="59" rx="2" fill="#75AADB" opacity="0.55"/>
+        <rect x="52" y="112" width="5" height="59" rx="2" fill="#75AADB" opacity="0.55"/>
+        <rect x="63" y="112" width="5" height="59" rx="2" fill="#75AADB" opacity="0.55"/>
+        <rect x="74" y="112" width="5" height="59" rx="2" fill="#75AADB" opacity="0.55"/>
+        <rect x="85" y="112" width="5" height="59" rx="2" fill="#75AADB" opacity="0.55"/>
+        <rect x="96" y="112" width="5" height="59" rx="2" fill="#75AADB" opacity="0.55"/>
+        <rect x="107" y="112" width="5" height="59" rx="2" fill="#75AADB" opacity="0.55"/>
+        <rect x="57" y="128" width="36" height="14" rx="3" fill="#111"/>
+        <text x="75" y="139" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">NOOVA</text>
+        <circle cx="75" cy="73" r="34" fill="#E8E8E8"/>
+        <circle cx="75" cy="73" r="30" fill="#1A1A1A"/>
+        <ellipse cx="75" cy="75" rx="22" ry="20" fill="#0D0D0D"/>
+        <ellipse cx="68" cy="68" rx="8" ry="6" fill="white" opacity="0.15"/>
+        <ellipse cx="65" cy="73" rx="4.5" ry="5" fill="white"/>
+        <ellipse cx="85" cy="73" rx="4.5" ry="5" fill="white"/>
+        <circle cx="66" cy="74" r="3" fill="#222"/>
+        <circle cx="86" cy="74" r="3" fill="#222"/>
+        <circle cx="67" cy="73" r="1" fill="white"/>
+        <circle cx="87" cy="73" r="1" fill="white"/>
+        <path d="M 66 83 Q 75 90 84 83" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <line x1="75" y1="39" x2="75" y2="29" stroke="#E8E8E8" stroke-width="3"/>
+        <circle cx="75" cy="26" r="5" fill="#D93050"/>
+        <!-- Ambos brazos levantados -->
+        <path d="M 41 125 Q 20 105 14 80" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+        <ellipse cx="12" cy="75" rx="9" ry="9" fill="white"/>
+        <path d="M 109 125 Q 130 105 136 80" stroke="white" stroke-width="14" stroke-linecap="round" fill="none"/>
+        <ellipse cx="138" cy="75" rx="9" ry="9" fill="white"/>
+        <rect x="54" y="166" width="16" height="14" rx="5" fill="#D0D0D0"/>
+        <rect x="80" y="166" width="16" height="14" rx="5" fill="#D0D0D0"/>
+        <ellipse cx="62" cy="180" rx="11" ry="5" fill="#999"/>
+        <ellipse cx="88" cy="180" rx="11" ry="5" fill="#999"/>
+      </svg>
+    </div>
+    <div class="mascot-banner-text">
+      <div class="mascot-banner-grito"><span class="highlight">DALE ARGENTINA</span> — 2DA FECHA 🏆</div>
+      <div class="mascot-banner-sub">Argentina vs Austria · Grupo J · 14:00 hs ARG</div>
+    </div>
+    <div class="mascot-banner-logos">
+      <div class="mascot-brand-tag">WESTNET<small>Internet Banda Ancha</small></div>
+      <div class="noova-tag">+ NOOVA TV</div>
+    </div>
+  </div>
+
   <div class="fecha-header jornada-2"><span class="fecha-dia">Lunes 22 de Junio</span><span class="fecha-jornada">2ª Fecha</span></div>
   <div class="partido arg"><div class="partido-hora">14:00<small>hs ARG</small></div><div class="partido-equipo home arg-team">Argentina 🇦🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇦🇹 Austria</div><div class="partido-meta"><div class="partido-grupo">Grupo J ★</div></div></div>
   <div class="partido"><div class="partido-hora">18:00<small>hs ARG</small></div><div class="partido-equipo home">Francia 🇫🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇮🇶 Irak</div><div class="partido-meta"><div class="partido-grupo">Grupo I</div></div></div>
@@ -786,6 +1135,80 @@
   <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Suiza 🇨🇭</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇦 Canadá</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div></div></div>
   <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Bosnia 🇧🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇶🇦 Qatar</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div></div></div>
 
+  <!-- MASCOTA BANNER 3: DÚO antes del 3er partido de Argentina - última fecha de grupos -->
+  <div class="mascot-banner banner-duo">
+    <div class="mascot-banner-mascot" style="gap:0; display:flex; padding: 0 0 0 8px;">
+      <!-- Zorra pequeña -->
+      <svg width="60" height="105" viewBox="10 0 130 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="75" cy="130" rx="32" ry="35" fill="#75AADB"/>
+        <rect x="43" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="55" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="67" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="79" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="91" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="103" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <circle cx="75" cy="122" r="8" fill="white" opacity="0.9"/>
+        <text x="75" y="125.5" font-family="Arial" font-size="6" font-weight="bold" fill="#75AADB" text-anchor="middle">AFA</text>
+        <ellipse cx="75" cy="75" rx="28" ry="26" fill="#D4521A"/>
+        <polygon points="52,58 45,35 63,52" fill="#D4521A"/>
+        <polygon points="52,58 47,40 60,55" fill="#E8724A"/>
+        <polygon points="98,58 105,35 87,52" fill="#D4521A"/>
+        <polygon points="98,58 103,40 90,55" fill="#E8724A"/>
+        <rect x="42" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <rect x="99" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <path d="M 47 64 Q 75 45 103 64" stroke="#28B463" stroke-width="4" fill="none"/>
+        <ellipse cx="75" cy="81" rx="16" ry="12" fill="#F5C18A"/>
+        <ellipse cx="64" cy="72" rx="5" ry="5" fill="white"/>
+        <ellipse cx="86" cy="72" rx="5" ry="5" fill="white"/>
+        <circle cx="65" cy="73" r="3" fill="#222"/>
+        <circle cx="87" cy="73" r="3" fill="#222"/>
+        <ellipse cx="75" cy="80" rx="4" ry="2.5" fill="#8B3A1A"/>
+        <path d="M 67 85 Q 75 92 83 85" stroke="#8B3A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 43 115 Q 25 100 20 80" stroke="#D4521A" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <ellipse cx="18" cy="76" rx="7" ry="7" fill="#F5C18A"/>
+        <path d="M 107 115 Q 125 100 130 80" stroke="#D4521A" stroke-width="12" stroke-linecap="round" fill="none"/>
+        <rect x="56" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+        <rect x="80" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+      </svg>
+      <!-- Astronauta pequeño -->
+      <svg width="60" height="105" viewBox="20 0 110 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="75" cy="138" rx="30" ry="32" fill="white"/>
+        <rect x="45" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="56" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="67" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="78" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="89" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="100" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="57" y="128" width="36" height="14" rx="3" fill="#111"/>
+        <text x="75" y="139" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">NOOVA</text>
+        <circle cx="75" cy="73" r="32" fill="#E8E8E8"/>
+        <circle cx="75" cy="73" r="28" fill="#1A1A1A"/>
+        <ellipse cx="75" cy="75" rx="20" ry="18" fill="#0D0D0D"/>
+        <ellipse cx="65" cy="73" rx="4" ry="4.5" fill="white"/>
+        <ellipse cx="85" cy="73" rx="4" ry="4.5" fill="white"/>
+        <circle cx="66" cy="74" r="2.5" fill="#222"/>
+        <circle cx="86" cy="74" r="2.5" fill="#222"/>
+        <path d="M 67 83 Q 75 89 83 83" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <line x1="75" y1="41" x2="75" y2="32" stroke="#E8E8E8" stroke-width="3"/>
+        <circle cx="75" cy="29" r="5" fill="#D93050"/>
+        <path d="M 45 128 Q 28 108 22 85" stroke="white" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="20" cy="80" rx="8" ry="8" fill="white"/>
+        <path d="M 105 128 Q 122 108 128 85" stroke="white" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="130" cy="80" rx="8" ry="8" fill="white"/>
+        <rect x="55" y="166" width="15" height="12" rx="4" fill="#D0D0D0"/>
+        <rect x="80" y="166" width="15" height="12" rx="4" fill="#D0D0D0"/>
+      </svg>
+    </div>
+    <div class="mascot-banner-text">
+      <div class="mascot-banner-grito">3ERA FECHA — <span class="highlight">A CLASIFICAR 🇦🇷</span></div>
+      <div class="mascot-banner-sub">Jordania vs Argentina · 23:00 hs · Westnet &amp; Noova TV te lo dan todo</div>
+    </div>
+    <div class="mascot-banner-logos">
+      <div class="mascot-brand-tag">WESTNET<small>Internet Banda Ancha</small></div>
+      <div class="noova-tag">+ NOOVA TV</div>
+    </div>
+  </div>
+
   <div class="fecha-header jornada-3"><span class="fecha-dia">Sábado 27 de Junio</span><span class="fecha-jornada">3ª Fecha — Grupos J · K · L</span></div>
   <div class="partido"><div class="partido-hora">18:00<small>hs ARG</small></div><div class="partido-equipo home">Panamá 🇵🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇬🇧 Inglaterra</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
   <div class="partido"><div class="partido-hora">18:00<small>hs ARG</small></div><div class="partido-equipo home">Croacia 🇭🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇬🇭 Ghana</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
@@ -793,6 +1216,60 @@
   <div class="partido"><div class="partido-hora">20:30<small>hs ARG</small></div><div class="partido-equipo home">Repechaje 1</div><div class="vs">VS</div><div class="partido-equipo away">🇺🇿 Uzbekistán</div><div class="partido-meta"><div class="partido-grupo">Grupo K</div></div></div>
   <div class="partido arg"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Jordania 🇯🇴</div><div class="vs">VS</div><div class="partido-equipo away arg-team">🇦🇷 Argentina</div><div class="partido-meta"><div class="partido-grupo">Grupo J ★</div></div></div>
   <div class="partido"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Argelia 🇩🇿</div><div class="vs">VS</div><div class="partido-equipo away">🇦🇹 Austria</div><div class="partido-meta"><div class="partido-grupo">Grupo J</div></div></div>
+
+  <!-- MASCOTA BANNER 4: Zorra alentando antes de la fase eliminatoria -->
+  <div class="mascot-banner banner-celeste">
+    <div class="mascot-banner-mascot">
+      <svg width="90" height="105" viewBox="0 0 150 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <!-- Zorra saltando con bandera argentina -->
+        <ellipse cx="75" cy="130" rx="32" ry="35" fill="#75AADB"/>
+        <rect x="43" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="55" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="67" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="79" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="91" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="103" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <circle cx="75" cy="122" r="8" fill="white" opacity="0.9"/>
+        <text x="75" y="125.5" font-family="Arial" font-size="6" font-weight="bold" fill="#75AADB" text-anchor="middle">AFA</text>
+        <ellipse cx="75" cy="75" rx="28" ry="26" fill="#D4521A"/>
+        <polygon points="52,58 45,35 63,52" fill="#D4521A"/>
+        <polygon points="52,58 47,40 60,55" fill="#E8724A"/>
+        <polygon points="98,58 105,35 87,52" fill="#D4521A"/>
+        <polygon points="98,58 103,40 90,55" fill="#E8724A"/>
+        <rect x="42" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <rect x="99" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <path d="M 47 64 Q 75 45 103 64" stroke="#28B463" stroke-width="4" fill="none"/>
+        <ellipse cx="75" cy="81" rx="16" ry="12" fill="#F5C18A"/>
+        <ellipse cx="64" cy="72" rx="5" ry="5" fill="white"/>
+        <ellipse cx="86" cy="72" rx="5" ry="5" fill="white"/>
+        <circle cx="65" cy="73" r="3" fill="#222"/>
+        <circle cx="87" cy="73" r="3" fill="#222"/>
+        <ellipse cx="75" cy="80" rx="4" ry="2.5" fill="#8B3A1A"/>
+        <path d="M 67 85 Q 75 92 83 85" stroke="#8B3A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <!-- Brazo izquierdo con bandera argentina -->
+        <path d="M 43 115 Q 20 95 12 65" stroke="#D4521A" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <line x1="12" y1="65" x2="12" y2="38" stroke="#75AADB" stroke-width="2.5"/>
+        <rect x="12" y="38" width="28" height="8" fill="#75AADB"/>
+        <rect x="12" y="46" width="28" height="8" fill="white"/>
+        <rect x="12" y="54" width="28" height="8" fill="#75AADB"/>
+        <!-- Brazo derecho levantado -->
+        <path d="M 107 115 Q 128 98 135 73" stroke="#D4521A" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="137" cy="69" rx="7" ry="7" fill="#F5C18A"/>
+        <rect x="56" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+        <rect x="80" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+        <ellipse cx="63" cy="172" rx="10" ry="4" fill="#222"/>
+        <ellipse cx="87" cy="172" rx="10" ry="4" fill="#222"/>
+      </svg>
+    </div>
+    <div class="mascot-banner-text">
+      <div class="mascot-banner-grito">🏆 EMPIEZA LO BUENO — <span class="highlight-celeste">¡AGUANTE LA SELECCIÓN!</span></div>
+      <div class="mascot-banner-sub">Fase eliminatoria · Seguí cada partido con Westnet &amp; Noova TV</div>
+    </div>
+    <div class="mascot-banner-logos">
+      <div class="mascot-brand-tag">WESTNET<small>Internet Banda Ancha</small></div>
+      <div class="noova-tag">+ NOOVA TV</div>
+    </div>
+  </div>
 
   <!-- ====== FASE ELIMINATORIA ====== -->
   <div class="fase-banner">
@@ -851,6 +1328,85 @@
     <span class="fase-fechas">18 Jul · Miami</span>
   </div>
   <div class="partido partido-elim"><div class="partido-hora">18:00<small>18 jul</small></div><div class="partido-equipo home">Perdedor SF1</div><div class="vs">VS</div><div class="partido-equipo away">Perdedor SF2</div><div class="partido-meta"><div class="partido-sede">Miami</div></div></div>
+
+  <!-- MASCOTA BANNER 5: DÚO en la Gran Final -->
+  <div class="mascot-banner banner-duo" style="min-height:130px;">
+    <div class="mascot-banner-mascot" style="display:flex; padding: 0 0 0 8px; align-items:flex-end;">
+      <svg width="65" height="118" viewBox="10 0 130 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="75" cy="130" rx="32" ry="35" fill="#75AADB"/>
+        <rect x="43" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="55" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="67" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="79" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="91" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <rect x="103" y="105" width="6" height="60" rx="2" fill="#4A8FC0"/>
+        <circle cx="75" cy="122" r="8" fill="white" opacity="0.9"/>
+        <text x="75" y="125.5" font-family="Arial" font-size="6" font-weight="bold" fill="#75AADB" text-anchor="middle">AFA</text>
+        <ellipse cx="75" cy="75" rx="28" ry="26" fill="#D4521A"/>
+        <polygon points="52,58 45,35 63,52" fill="#D4521A"/>
+        <polygon points="52,58 47,40 60,55" fill="#E8724A"/>
+        <polygon points="98,58 105,35 87,52" fill="#D4521A"/>
+        <polygon points="98,58 103,40 90,55" fill="#E8724A"/>
+        <rect x="42" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <rect x="99" y="62" width="9" height="18" rx="4" fill="#28B463"/>
+        <path d="M 47 64 Q 75 45 103 64" stroke="#28B463" stroke-width="4" fill="none"/>
+        <ellipse cx="75" cy="81" rx="16" ry="12" fill="#F5C18A"/>
+        <ellipse cx="64" cy="72" rx="5" ry="5" fill="white"/>
+        <ellipse cx="86" cy="72" rx="5" ry="5" fill="white"/>
+        <circle cx="65" cy="73" r="3" fill="#222"/>
+        <circle cx="87" cy="73" r="3" fill="#222"/>
+        <ellipse cx="75" cy="80" rx="4" ry="2.5" fill="#8B3A1A"/>
+        <path d="M 67 85 Q 75 92 83 85" stroke="#8B3A1A" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M 43 115 Q 22 98 15 73" stroke="#D4521A" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="13" cy="69" rx="7" ry="7" fill="#F5C18A"/>
+        <path d="M 107 115 Q 128 98 135 73" stroke="#D4521A" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="137" cy="69" rx="7" ry="7" fill="#F5C18A"/>
+        <!-- Copa arriba -->
+        <ellipse cx="13" cy="63" rx="8" ry="6" fill="#F5C842"/>
+        <rect x="9" y="57" width="8" height="10" rx="1" fill="#F5C842"/>
+        <ellipse cx="13" cy="57" rx="6" ry="3" fill="#D4A800"/>
+        <rect x="56" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+        <rect x="80" y="160" width="14" height="12" rx="4" fill="#4A8FC0"/>
+        <ellipse cx="63" cy="172" rx="10" ry="4" fill="#222"/>
+        <ellipse cx="87" cy="172" rx="10" ry="4" fill="#222"/>
+      </svg>
+      <svg width="65" height="118" viewBox="20 0 110 175" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <ellipse cx="75" cy="138" rx="30" ry="32" fill="white"/>
+        <rect x="45" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="56" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="67" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="78" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="89" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="100" y="112" width="5" height="58" rx="2" fill="#75AADB" opacity="0.5"/>
+        <rect x="57" y="128" width="36" height="14" rx="3" fill="#111"/>
+        <text x="75" y="139" font-family="Arial" font-size="7" font-weight="bold" fill="white" text-anchor="middle">NOOVA</text>
+        <circle cx="75" cy="73" r="32" fill="#E8E8E8"/>
+        <circle cx="75" cy="73" r="28" fill="#1A1A1A"/>
+        <ellipse cx="75" cy="75" rx="20" ry="18" fill="#0D0D0D"/>
+        <ellipse cx="65" cy="73" rx="4" ry="4.5" fill="white"/>
+        <ellipse cx="85" cy="73" rx="4" ry="4.5" fill="white"/>
+        <circle cx="66" cy="74" r="2.5" fill="#222"/>
+        <circle cx="86" cy="74" r="2.5" fill="#222"/>
+        <path d="M 67 83 Q 75 89 83 83" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <line x1="75" y1="41" x2="75" y2="32" stroke="#E8E8E8" stroke-width="3"/>
+        <circle cx="75" cy="29" r="5" fill="#F5C842"/>
+        <path d="M 45 128 Q 28 108 22 85" stroke="white" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="20" cy="80" rx="8" ry="8" fill="white"/>
+        <path d="M 105 128 Q 122 108 128 85" stroke="white" stroke-width="13" stroke-linecap="round" fill="none"/>
+        <ellipse cx="130" cy="80" rx="8" ry="8" fill="white"/>
+        <rect x="55" y="166" width="15" height="12" rx="4" fill="#D0D0D0"/>
+        <rect x="80" y="166" width="15" height="12" rx="4" fill="#D0D0D0"/>
+      </svg>
+    </div>
+    <div class="mascot-banner-text">
+      <div class="mascot-banner-grito" style="font-size:clamp(1.2rem,3.5vw,2rem);">🏆 <span class="highlight">CAMPEONES DEL MUNDO</span> — VAMOS ARGENTINA 🇦🇷</div>
+      <div class="mascot-banner-sub">19 Jul · MetLife Stadium · Westnet &amp; Noova TV en toda la señal</div>
+    </div>
+    <div class="mascot-banner-logos">
+      <div class="mascot-brand-tag">WESTNET<small>Internet Banda Ancha</small></div>
+      <div class="noova-tag">+ NOOVA TV</div>
+    </div>
+  </div>
 
   <!-- FINAL -->
   <div class="final-banner">
