@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fixture Mundial 2026 - WESTNET</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Barlow+Condensed:wght@400;600;700;800;900&family=Barlow:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --coral: #D93050;
+    --coral-dark: #B8223E;
+    --coral-light: #F04060;
+    --blanco: #FFFFFF;
+    --negro: #111111;
+    --gris-oscuro: #1A1A1A;
+    --gris-medio: #2A2A2A;
+    --gris-claro: #F5F5F5;
+    --gris-linea: #E0E0E0;
+    --oro: #F5C842;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Barlow', sans-serif;
+    background: #FAFAFA;
+    color: var(--negro);
+  }
+
+  /* ====== PORTADA ====== */
+  .portada {
+    background: var(--coral);
+    color: var(--blanco);
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Patrón de fondo sutil */
+  .portada::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent,
+      transparent 40px,
+      rgba(255,255,255,0.04) 40px,
+      rgba(255,255,255,0.04) 80px
+    );
+    pointer-events: none;
+  }
+
+  /* Franja superior */
+  .top-bar {
+    background: var(--coral-dark);
+    padding: 12px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: relative;
+    z-index: 2;
+  }
+
+  .top-bar-text {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+  }
+
+  /* Logo Westnet */
+  .logo-section {
+    position: relative;
+    z-index: 2;
+    padding: 50px 40px 30px;
+    display: flex;
+    align-items: flex-start;
+    gap: 0;
+  }
+
+  .logo-box {
+    display: inline-block;
+  }
+
+  .logo-west {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 9rem);
+    line-height: 0.88;
+    color: var(--blanco);
+    letter-spacing: 0.03em;
+    display: block;
+  }
+
+  .logo-net-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+
+  .logo-cross {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+    width: clamp(42px, 7vw, 72px);
+    height: clamp(42px, 7vw, 72px);
+    gap: 4px;
+    flex-shrink: 0;
+  }
+
+  .logo-cross-cell {
+    background: var(--blanco);
+    border-radius: 2px;
+  }
+
+  .logo-cross-cell.empty { background: transparent; }
+
+  .logo-net {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(5rem, 15vw, 9rem);
+    line-height: 0.88;
+    color: var(--blanco);
+    letter-spacing: 0.03em;
+  }
+
+  .logo-tagline {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: clamp(0.75rem, 2vw, 1rem);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.85);
+    margin-top: 6px;
+    padding-left: 2px;
+  }
+
+  .logo-tagline strong {
+    font-weight: 700;
+    color: var(--blanco);
+  }
+
+  /* Hero content */
+  .portada-hero {
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px 40px 60px;
+    text-align: center;
+  }
+
+  .mundial-eyebrow {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: clamp(0.8rem, 2vw, 1rem);
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 16px;
+  }
+
+  .mundial-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4.5rem, 18vw, 14rem);
+    line-height: 0.85;
+    color: var(--blanco);
+    letter-spacing: 0.02em;
+    margin-bottom: 0;
+  }
+
+  .mundial-titulo span {
+    display: block;
+  }
+
+  .mundial-titulo .anio {
+    color: var(--oro);
+    font-size: clamp(5.5rem, 22vw, 17rem);
+    line-height: 0.82;
+  }
+
+  .mundial-sedes {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: clamp(1rem, 3vw, 1.5rem);
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.9);
+    margin-top: 20px;
+    text-transform: uppercase;
+  }
+
+  /* Slogan destacado */
+  .slogan-principal {
+    margin-top: 40px;
+    background: var(--blanco);
+    color: var(--coral);
+    padding: 20px 48px;
+    display: inline-block;
+    position: relative;
+  }
+
+  .slogan-principal::before,
+  .slogan-principal::after {
+    content: '';
+    position: absolute;
+    top: 0; bottom: 0;
+    width: 6px;
+    background: var(--coral-dark);
+  }
+  .slogan-principal::before { left: 0; }
+  .slogan-principal::after { right: 0; }
+
+  .slogan-txt {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(1.4rem, 4.5vw, 3rem);
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+  }
+
+  .slogan-txt em {
+    font-style: normal;
+    color: var(--coral-dark);
+  }
+
+  /* Fechas pill */
+  .fechas-pill {
+    margin-top: 32px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: rgba(0,0,0,0.2);
+    border: 1.5px solid rgba(255,255,255,0.3);
+    padding: 10px 28px;
+    border-radius: 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: clamp(0.85rem, 2vw, 1.1rem);
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+  }
+
+  .fechas-pill .sep { color: rgba(255,255,255,0.4); }
+
+  /* ====== CUERPO DEL FIXTURE ====== */
+  .fixture-wrap {
+    background: var(--blanco);
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 0 80px;
+  }
+
+  /* Banner de sección */
+  .seccion-banner {
+    background: var(--coral);
+    padding: 18px 32px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 0;
+  }
+
+  .seccion-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2rem;
+    letter-spacing: 0.1em;
+    color: var(--blanco);
+  }
+
+  .seccion-sub {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.25em;
+    color: rgba(255,255,255,0.65);
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  /* Grupos */
+  .grupos-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border-left: 1px solid var(--gris-linea);
+    border-top: 1px solid var(--gris-linea);
+  }
+
+  .grupo-card {
+    border-right: 1px solid var(--gris-linea);
+    border-bottom: 1px solid var(--gris-linea);
+    padding: 16px 18px;
+  }
+
+  .grupo-card.destacado {
+    background: #FFF5F7;
+    border-color: var(--coral);
+  }
+
+  .grupo-letra {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 0.95rem;
+    letter-spacing: 0.2em;
+    color: var(--coral);
+    margin-bottom: 10px;
+  }
+
+  .grupo-card.destacado .grupo-letra {
+    color: var(--coral-dark);
+    font-size: 1rem;
+  }
+
+  .grupo-card ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+  }
+
+  .grupo-card ul li {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: #333;
+    letter-spacing: 0.02em;
+  }
+
+  .grupo-card ul li.arg {
+    color: var(--coral);
+    font-weight: 800;
+  }
+
+  /* Fecha header */
+  .fecha-header {
+    background: var(--gris-oscuro);
+    padding: 10px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 2px;
+  }
+
+  .fecha-header.jornada-2 { background: #222; }
+  .fecha-header.jornada-3 { background: #333; }
+
+  .fecha-dia {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.15rem;
+    letter-spacing: 0.12em;
+    color: var(--blanco);
+  }
+
+  .fecha-jornada {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4);
+    text-transform: uppercase;
+    margin-left: auto;
+  }
+
+  /* Partido row */
+  .partido {
+    display: grid;
+    grid-template-columns: 72px 1fr 36px 1fr 90px;
+    align-items: center;
+    padding: 11px 24px;
+    border-bottom: 1px solid var(--gris-linea);
+    transition: background 0.15s;
+    gap: 8px;
+  }
+
+  .partido:hover { background: #FAFAFA; }
+
+  .partido.arg {
+    background: #FFF5F7;
+    border-left: 3px solid var(--coral);
+    padding-left: 21px;
+  }
+
+  .partido.arg:hover { background: #FFECF0; }
+
+  .partido-hora {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.5rem;
+    color: var(--coral);
+    line-height: 1;
+    text-align: center;
+  }
+
+  .partido-hora small {
+    display: block;
+    font-family: 'Barlow', sans-serif;
+    font-weight: 400;
+    font-size: 0.58rem;
+    color: #999;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    line-height: 1.2;
+  }
+
+  .partido-equipo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    color: #111;
+    letter-spacing: 0.02em;
+  }
+
+  .partido-equipo.home { text-align: right; }
+  .partido-equipo.away { text-align: left; }
+  .partido-equipo.arg-team { color: var(--coral); font-weight: 800; }
+
+  .vs {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.75rem;
+    color: #CCC;
+    text-align: center;
+    letter-spacing: 0.05em;
+  }
+
+  .partido-meta {
+    text-align: right;
+  }
+
+  .partido-grupo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    color: var(--coral);
+    text-transform: uppercase;
+  }
+
+  .partido-sede {
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.63rem;
+    color: #AAA;
+    margin-top: 1px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  /* Fase eliminatoria banner */
+  .fase-banner {
+    background: var(--negro);
+    padding: 16px 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 4px;
+  }
+
+  .fase-nombre {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.6rem;
+    letter-spacing: 0.1em;
+    color: var(--blanco);
+  }
+
+  .fase-fechas {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.75rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.4);
+    margin-left: auto;
+    text-transform: uppercase;
+  }
+
+  .partido-elim .partido-equipo {
+    color: #777;
+    font-style: italic;
+    font-size: 0.88rem;
+  }
+
+  /* FINAL especial */
+  .final-banner {
+    background: var(--coral);
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .final-titulo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.2rem;
+    letter-spacing: 0.12em;
+    color: var(--blanco);
+  }
+
+  .final-subtitulo {
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+  }
+
+  .partido.final-partido {
+    background: #FFF5F7;
+    border-left: 4px solid var(--coral);
+    padding-left: 20px;
+  }
+
+  .partido.final-partido .partido-hora { font-size: 1.7rem; }
+  .partido.final-partido .partido-equipo {
+    font-size: 1.1rem;
+    color: var(--coral);
+    font-style: italic;
+  }
+
+  /* Footer */
+  .pie {
+    background: var(--coral);
+    padding: 32px 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-top: 4px;
+  }
+
+  .pie-logo {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: var(--blanco);
+    letter-spacing: 0.08em;
+    line-height: 1;
+  }
+
+  .pie-logo small {
+    display: block;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 400;
+    font-size: 0.65rem;
+    letter-spacing: 0.35em;
+    color: rgba(255,255,255,0.6);
+    text-transform: uppercase;
+  }
+
+  .pie-contacto {
+    text-align: right;
+    font-family: 'Barlow Condensed', sans-serif;
+  }
+
+  .pie-contacto p {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--blanco);
+    letter-spacing: 0.05em;
+  }
+
+  .pie-contacto span {
+    font-weight: 400;
+    font-size: 0.85rem;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.08em;
+  }
+
+  .pie-servicios {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .pie-servicio {
+    background: rgba(0,0,0,0.15);
+    padding: 8px 16px;
+    border-radius: 2px;
+    font-family: 'Barlow Condensed', sans-serif;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.15em;
+    color: rgba(255,255,255,0.9);
+    text-transform: uppercase;
+  }
+
+  /* Nota horarios */
+  .nota-horarios {
+    background: #F9F9F9;
+    border-left: 3px solid var(--coral);
+    padding: 12px 24px;
+    margin: 0;
+    font-family: 'Barlow', sans-serif;
+    font-size: 0.78rem;
+    color: #777;
+    letter-spacing: 0.03em;
+  }
+
+  .nota-horarios strong { color: var(--coral); }
+
+  @media (max-width: 700px) {
+    .grupos-grid { grid-template-columns: repeat(2, 1fr); }
+    .partido { grid-template-columns: 58px 1fr 28px 1fr 70px; padding: 10px 14px; gap: 5px; }
+    .partido-equipo { font-size: 0.82rem; }
+    .partido-hora { font-size: 1.25rem; }
+    .partido-sede { display: none; }
+    .logo-west, .logo-net { font-size: clamp(3.5rem, 12vw, 5.5rem); }
+    .slogan-principal { padding: 16px 24px; }
+    .pie { flex-direction: column; text-align: center; }
+    .pie-contacto { text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- =========== PORTADA =========== -->
+<section class="portada">
+  <div class="top-bar">
+    <span class="top-bar-text">Copa Mundial FIFA 2026</span>
+    <span class="top-bar-text">Horarios hora Argentina</span>
+  </div>
+
+  <div class="logo-section">
+    <div class="logo-box">
+      <span class="logo-west">WEST</span>
+      <div class="logo-net-row">
+        <div class="logo-cross">
+          <div class="logo-cross-cell empty"></div>
+          <div class="logo-cross-cell"></div>
+          <div class="logo-cross-cell empty"></div>
+          <div class="logo-cross-cell"></div>
+          <div class="logo-cross-cell"></div>
+          <div class="logo-cross-cell"></div>
+          <div class="logo-cross-cell empty"></div>
+          <div class="logo-cross-cell"></div>
+          <div class="logo-cross-cell empty"></div>
+        </div>
+        <span class="logo-net">NET</span>
+      </div>
+      <div class="logo-tagline"><strong>INTERNET</strong> BANDA ANCHA</div>
+    </div>
+  </div>
+
+  <div class="portada-hero">
+    <div class="mundial-eyebrow">📡 Conectate para ver</div>
+    <div class="mundial-titulo">
+      <span>MUNDIAL</span>
+      <span class="anio">2026</span>
+    </div>
+    <div class="mundial-sedes">🇺🇸 Estados Unidos &nbsp;·&nbsp; 🇲🇽 México &nbsp;·&nbsp; 🇨🇦 Canadá</div>
+
+    <div class="slogan-principal">
+      <div class="slogan-txt">WESTNET — CONECTATE PARA VER<br>EL MUNDIAL <em>DONDE ESTÉS</em></div>
+    </div>
+
+    <div class="fechas-pill">
+      📅 11 de Junio
+      <span class="sep">→</span>
+      19 de Julio 2026
+      <span class="sep">·</span>
+      104 partidos
+      <span class="sep">·</span>
+      48 selecciones
+    </div>
+  </div>
+</section>
+
+<!-- =========== FIXTURE =========== -->
+<div class="fixture-wrap">
+
+  <!-- GRUPOS -->
+  <div class="seccion-banner">
+    <span class="seccion-titulo">⚽ Los 12 Grupos</span>
+    <span class="seccion-sub">48 selecciones · 12 grupos de 4</span>
+  </div>
+
+  <div class="grupos-grid">
+    <div class="grupo-card"><div class="grupo-letra">Grupo A</div><ul><li>🇲🇽 México</li><li>🇿🇦 Sudáfrica</li><li>🇰🇷 Corea del Sur</li><li>🇨🇿 Rep. Checa</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo B</div><ul><li>🇨🇦 Canadá</li><li>🇧🇦 Bosnia</li><li>🇶🇦 Qatar</li><li>🇨🇭 Suiza</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo C</div><ul><li>🇧🇷 Brasil</li><li>🇲🇦 Marruecos</li><li>🇭🇹 Haití</li><li>🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo D</div><ul><li>🇺🇸 EE.UU.</li><li>🇵🇾 Paraguay</li><li>🇦🇺 Australia</li><li>🇹🇷 Turquía</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo E</div><ul><li>🇩🇪 Alemania</li><li>🇨🇼 Curazao</li><li>🇳🇱 Países Bajos</li><li>🇯🇵 Japón</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo F</div><ul><li>🇨🇮 Costa de Marfil</li><li>🇪🇨 Ecuador</li><li>🇸🇪 Suecia</li><li>🇹🇳 Túnez</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo G</div><ul><li>🇪🇸 España</li><li>🇨🇻 Cabo Verde</li><li>🇧🇪 Bélgica</li><li>🇪🇬 Egipto</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo H</div><ul><li>🇸🇦 Arabia Saudita</li><li>🇺🇾 Uruguay</li><li>🇮🇷 Irán</li><li>🇳🇿 Nueva Zelanda</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo I</div><ul><li>🇫🇷 Francia</li><li>🇸🇳 Senegal</li><li>🇮🇶 Irak</li><li>🇳🇴 Noruega</li></ul></div>
+    <div class="grupo-card destacado"><div class="grupo-letra">Grupo J ⭐</div><ul><li class="arg">🇦🇷 Argentina</li><li>🇩🇿 Argelia</li><li>🇦🇹 Austria</li><li>🇯🇴 Jordania</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo K</div><ul><li>🇵🇹 Portugal</li><li>Repechaje</li><li>🇨🇴 Colombia</li><li>🇺🇿 Uzbekistán</li></ul></div>
+    <div class="grupo-card"><div class="grupo-letra">Grupo L</div><ul><li>🇬🇧 Inglaterra</li><li>🇭🇷 Croacia</li><li>🇬🇭 Ghana</li><li>🇵🇦 Panamá</li></ul></div>
+  </div>
+
+  <div class="nota-horarios">
+    <strong>★ Todos los horarios en hora Argentina (ARG/URU).</strong> &nbsp;Los partidos marcados en rojo incluyen a la Selección Argentina.
+  </div>
+
+  <!-- ====== FASE DE GRUPOS ====== -->
+  <div class="seccion-banner" style="margin-top:4px">
+    <span class="seccion-titulo">📅 Fase de Grupos</span>
+    <span class="seccion-sub">11 Jun — 27 Jun</span>
+  </div>
+
+  <!-- JORNADA 1 -->
+  <div class="fecha-header"><span class="fecha-dia">Jueves 11 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">México 🇲🇽</div><div class="vs">VS</div><div class="partido-equipo away">🇿🇦 Sudáfrica</div><div class="partido-meta"><div class="partido-grupo">Grupo A</div><div class="partido-sede">Azteca · México</div></div></div>
+  <div class="partido"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Corea del Sur 🇰🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇿 Rep. Checa</div><div class="partido-meta"><div class="partido-grupo">Grupo A</div><div class="partido-sede">Akron · Guadalajara</div></div></div>
+
+  <div class="fecha-header"><span class="fecha-dia">Viernes 12 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Canadá 🇨🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇧🇦 Bosnia</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div><div class="partido-sede">BMO Field · Toronto</div></div></div>
+  <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">EE.UU. 🇺🇸</div><div class="vs">VS</div><div class="partido-equipo away">🇵🇾 Paraguay</div><div class="partido-meta"><div class="partido-grupo">Grupo D</div><div class="partido-sede">SoFi Stadium · LA</div></div></div>
+
+  <div class="fecha-header"><span class="fecha-dia">Sábado 13 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Qatar 🇶🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇭 Suiza</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div><div class="partido-sede">Levi's · San Francisco</div></div></div>
+  <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Brasil 🇧🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇲🇦 Marruecos</div><div class="partido-meta"><div class="partido-grupo">Grupo C</div><div class="partido-sede">MetLife · New Jersey</div></div></div>
+  <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">Haití 🇭🇹</div><div class="vs">VS</div><div class="partido-equipo away">🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia</div><div class="partido-meta"><div class="partido-grupo">Grupo C</div><div class="partido-sede">Gillette · Boston</div></div></div>
+  <div class="partido"><div class="partido-hora">01:00<small>dom ARG</small></div><div class="partido-equipo home">Australia 🇦🇺</div><div class="vs">VS</div><div class="partido-equipo away">🇹🇷 Turquía</div><div class="partido-meta"><div class="partido-grupo">Grupo D</div><div class="partido-sede">BC Place · Vancouver</div></div></div>
+
+  <div class="fecha-header"><span class="fecha-dia">Domingo 14 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">14:00<small>hs ARG</small></div><div class="partido-equipo home">Alemania 🇩🇪</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇼 Curazao</div><div class="partido-meta"><div class="partido-grupo">Grupo E</div></div></div>
+  <div class="partido"><div class="partido-hora">17:00<small>hs ARG</small></div><div class="partido-equipo home">Países Bajos 🇳🇱</div><div class="vs">VS</div><div class="partido-equipo away">🇯🇵 Japón</div><div class="partido-meta"><div class="partido-grupo">Grupo E</div></div></div>
+  <div class="partido"><div class="partido-hora">20:00<small>hs ARG</small></div><div class="partido-equipo home">Costa de Marfil 🇨🇮</div><div class="vs">VS</div><div class="partido-equipo away">🇪🇨 Ecuador</div><div class="partido-meta"><div class="partido-grupo">Grupo F</div></div></div>
+  <div class="partido"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Suecia 🇸🇪</div><div class="vs">VS</div><div class="partido-equipo away">🇹🇳 Túnez</div><div class="partido-meta"><div class="partido-grupo">Grupo F</div></div></div>
+
+  <div class="fecha-header"><span class="fecha-dia">Lunes 15 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">13:00<small>hs ARG</small></div><div class="partido-equipo home">España 🇪🇸</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇻 Cabo Verde</div><div class="partido-meta"><div class="partido-grupo">Grupo G</div></div></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Bélgica 🇧🇪</div><div class="vs">VS</div><div class="partido-equipo away">🇪🇬 Egipto</div><div class="partido-meta"><div class="partido-grupo">Grupo G</div></div></div>
+  <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Arabia Saudita 🇸🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇺🇾 Uruguay</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
+  <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">Irán 🇮🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇳🇿 Nueva Zelanda</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
+
+  <div class="fecha-header"><span class="fecha-dia">Martes 16 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Francia 🇫🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇸🇳 Senegal</div><div class="partido-meta"><div class="partido-grupo">Grupo I</div></div></div>
+  <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Irak 🇮🇶</div><div class="vs">VS</div><div class="partido-equipo away">🇳🇴 Noruega</div><div class="partido-meta"><div class="partido-grupo">Grupo I</div></div></div>
+  <div class="partido arg"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home arg-team">Argentina 🇦🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇩🇿 Argelia</div><div class="partido-meta"><div class="partido-grupo">Grupo J ★</div></div></div>
+  <div class="partido"><div class="partido-hora">01:00<small>mié ARG</small></div><div class="partido-equipo home">Austria 🇦🇹</div><div class="vs">VS</div><div class="partido-equipo away">🇯🇴 Jordania</div><div class="partido-meta"><div class="partido-grupo">Grupo J</div></div></div>
+
+  <div class="fecha-header"><span class="fecha-dia">Miércoles 17 de Junio</span><span class="fecha-jornada">1ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">14:00<small>hs ARG</small></div><div class="partido-equipo home">Portugal 🇵🇹</div><div class="vs">VS</div><div class="partido-equipo away">Repechaje 1</div><div class="partido-meta"><div class="partido-grupo">Grupo K</div></div></div>
+  <div class="partido"><div class="partido-hora">17:00<small>hs ARG</small></div><div class="partido-equipo home">Inglaterra 🇬🇧</div><div class="vs">VS</div><div class="partido-equipo away">🇭🇷 Croacia</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
+  <div class="partido"><div class="partido-hora">20:00<small>hs ARG</small></div><div class="partido-equipo home">Ghana 🇬🇭</div><div class="vs">VS</div><div class="partido-equipo away">🇵🇦 Panamá</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
+  <div class="partido"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Uzbekistán 🇺🇿</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇴 Colombia</div><div class="partido-meta"><div class="partido-grupo">Grupo K</div></div></div>
+
+  <!-- JORNADA 2 -->
+  <div class="fecha-header jornada-2"><span class="fecha-dia">Jueves 18 de Junio</span><span class="fecha-jornada">2ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">13:00<small>hs ARG</small></div><div class="partido-equipo home">Rep. Checa 🇨🇿</div><div class="vs">VS</div><div class="partido-equipo away">🇿🇦 Sudáfrica</div><div class="partido-meta"><div class="partido-grupo">Grupo A</div></div></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Suiza 🇨🇭</div><div class="vs">VS</div><div class="partido-equipo away">🇧🇦 Bosnia</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div></div></div>
+  <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Canadá 🇨🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇶🇦 Qatar</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div></div></div>
+  <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">México 🇲🇽</div><div class="vs">VS</div><div class="partido-equipo away">🇰🇷 Corea del Sur</div><div class="partido-meta"><div class="partido-grupo">Grupo A</div></div></div>
+
+  <div class="fecha-header jornada-2"><span class="fecha-dia">Viernes 19 de Junio</span><span class="fecha-jornada">2ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">EE.UU. 🇺🇸</div><div class="vs">VS</div><div class="partido-equipo away">🇦🇺 Australia</div><div class="partido-meta"><div class="partido-grupo">Grupo D</div></div></div>
+  <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Escocia 🏴󠁧󠁢󠁳󠁣󠁴󠁿</div><div class="vs">VS</div><div class="partido-equipo away">🇲🇦 Marruecos</div><div class="partido-meta"><div class="partido-grupo">Grupo C</div></div></div>
+  <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">Brasil 🇧🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇭🇹 Haití</div><div class="partido-meta"><div class="partido-grupo">Grupo C</div></div></div>
+  <div class="partido"><div class="partido-hora">01:00<small>sáb ARG</small></div><div class="partido-equipo home">Turquía 🇹🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇵🇾 Paraguay</div><div class="partido-meta"><div class="partido-grupo">Grupo D</div></div></div>
+
+  <div class="fecha-header jornada-2"><span class="fecha-dia">Sábado 20 de Junio</span><span class="fecha-jornada">2ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">14:00<small>hs ARG</small></div><div class="partido-equipo home">Países Bajos 🇳🇱</div><div class="vs">VS</div><div class="partido-equipo away">🇸🇪 Suecia</div><div class="partido-meta"><div class="partido-grupo">Grupo E</div></div></div>
+  <div class="partido"><div class="partido-hora">17:00<small>hs ARG</small></div><div class="partido-equipo home">Alemania 🇩🇪</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇮 Costa de Marfil</div><div class="partido-meta"><div class="partido-grupo">Grupo E</div></div></div>
+  <div class="partido"><div class="partido-hora">21:00<small>hs ARG</small></div><div class="partido-equipo home">Ecuador 🇪🇨</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇼 Curazao</div><div class="partido-meta"><div class="partido-grupo">Grupo E</div></div></div>
+  <div class="partido"><div class="partido-hora">01:00<small>dom ARG</small></div><div class="partido-equipo home">Túnez 🇹🇳</div><div class="vs">VS</div><div class="partido-equipo away">🇯🇵 Japón</div><div class="partido-meta"><div class="partido-grupo">Grupo E</div></div></div>
+
+  <div class="fecha-header jornada-2"><span class="fecha-dia">Domingo 21 de Junio</span><span class="fecha-jornada">2ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">13:00<small>hs ARG</small></div><div class="partido-equipo home">España 🇪🇸</div><div class="vs">VS</div><div class="partido-equipo away">🇸🇦 Arabia Saudita</div><div class="partido-meta"><div class="partido-grupo">Grupo G</div></div></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Bélgica 🇧🇪</div><div class="vs">VS</div><div class="partido-equipo away">🇮🇷 Irán</div><div class="partido-meta"><div class="partido-grupo">Grupo G</div></div></div>
+  <div class="partido"><div class="partido-hora">19:00<small>hs ARG</small></div><div class="partido-equipo home">Uruguay 🇺🇾</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇻 Cabo Verde</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
+  <div class="partido"><div class="partido-hora">22:00<small>hs ARG</small></div><div class="partido-equipo home">Nueva Zelanda 🇳🇿</div><div class="vs">VS</div><div class="partido-equipo away">🇪🇬 Egipto</div><div class="partido-meta"><div class="partido-grupo">Grupo H</div></div></div>
+
+  <div class="fecha-header jornada-2"><span class="fecha-dia">Lunes 22 de Junio</span><span class="fecha-jornada">2ª Fecha</span></div>
+  <div class="partido arg"><div class="partido-hora">14:00<small>hs ARG</small></div><div class="partido-equipo home arg-team">Argentina 🇦🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇦🇹 Austria</div><div class="partido-meta"><div class="partido-grupo">Grupo J ★</div></div></div>
+  <div class="partido"><div class="partido-hora">18:00<small>hs ARG</small></div><div class="partido-equipo home">Francia 🇫🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇮🇶 Irak</div><div class="partido-meta"><div class="partido-grupo">Grupo I</div></div></div>
+  <div class="partido"><div class="partido-hora">21:00<small>hs ARG</small></div><div class="partido-equipo home">Noruega 🇳🇴</div><div class="vs">VS</div><div class="partido-equipo away">🇸🇳 Senegal</div><div class="partido-meta"><div class="partido-grupo">Grupo I</div></div></div>
+  <div class="partido"><div class="partido-hora">00:00<small>mar ARG</small></div><div class="partido-equipo home">Jordania 🇯🇴</div><div class="vs">VS</div><div class="partido-equipo away">🇩🇿 Argelia</div><div class="partido-meta"><div class="partido-grupo">Grupo J</div></div></div>
+
+  <div class="fecha-header jornada-2"><span class="fecha-dia">Martes 23 de Junio</span><span class="fecha-jornada">2ª Fecha</span></div>
+  <div class="partido"><div class="partido-hora">14:00<small>hs ARG</small></div><div class="partido-equipo home">Portugal 🇵🇹</div><div class="vs">VS</div><div class="partido-equipo away">🇺🇿 Uzbekistán</div><div class="partido-meta"><div class="partido-grupo">Grupo K</div></div></div>
+  <div class="partido"><div class="partido-hora">17:00<small>hs ARG</small></div><div class="partido-equipo home">Inglaterra 🇬🇧</div><div class="vs">VS</div><div class="partido-equipo away">🇬🇭 Ghana</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
+  <div class="partido"><div class="partido-hora">20:00<small>hs ARG</small></div><div class="partido-equipo home">Panamá 🇵🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇭🇷 Croacia</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
+  <div class="partido"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Colombia 🇨🇴</div><div class="vs">VS</div><div class="partido-equipo away">Repechaje 1</div><div class="partido-meta"><div class="partido-grupo">Grupo K</div></div></div>
+
+  <!-- JORNADA 3 -->
+  <div class="fecha-header jornada-3"><span class="fecha-dia">Miércoles 24 de Junio</span><span class="fecha-jornada">3ª Fecha — Grupo B</span></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Suiza 🇨🇭</div><div class="vs">VS</div><div class="partido-equipo away">🇨🇦 Canadá</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div></div></div>
+  <div class="partido"><div class="partido-hora">16:00<small>hs ARG</small></div><div class="partido-equipo home">Bosnia 🇧🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇶🇦 Qatar</div><div class="partido-meta"><div class="partido-grupo">Grupo B</div></div></div>
+
+  <div class="fecha-header jornada-3"><span class="fecha-dia">Sábado 27 de Junio</span><span class="fecha-jornada">3ª Fecha — Grupos J · K · L</span></div>
+  <div class="partido"><div class="partido-hora">18:00<small>hs ARG</small></div><div class="partido-equipo home">Panamá 🇵🇦</div><div class="vs">VS</div><div class="partido-equipo away">🇬🇧 Inglaterra</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
+  <div class="partido"><div class="partido-hora">18:00<small>hs ARG</small></div><div class="partido-equipo home">Croacia 🇭🇷</div><div class="vs">VS</div><div class="partido-equipo away">🇬🇭 Ghana</div><div class="partido-meta"><div class="partido-grupo">Grupo L</div></div></div>
+  <div class="partido"><div class="partido-hora">20:30<small>hs ARG</small></div><div class="partido-equipo home">Colombia 🇨🇴</div><div class="vs">VS</div><div class="partido-equipo away">🇵🇹 Portugal</div><div class="partido-meta"><div class="partido-grupo">Grupo K</div></div></div>
+  <div class="partido"><div class="partido-hora">20:30<small>hs ARG</small></div><div class="partido-equipo home">Repechaje 1</div><div class="vs">VS</div><div class="partido-equipo away">🇺🇿 Uzbekistán</div><div class="partido-meta"><div class="partido-grupo">Grupo K</div></div></div>
+  <div class="partido arg"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Jordania 🇯🇴</div><div class="vs">VS</div><div class="partido-equipo away arg-team">🇦🇷 Argentina</div><div class="partido-meta"><div class="partido-grupo">Grupo J ★</div></div></div>
+  <div class="partido"><div class="partido-hora">23:00<small>hs ARG</small></div><div class="partido-equipo home">Argelia 🇩🇿</div><div class="vs">VS</div><div class="partido-equipo away">🇦🇹 Austria</div><div class="partido-meta"><div class="partido-grupo">Grupo J</div></div></div>
+
+  <!-- ====== FASE ELIMINATORIA ====== -->
+  <div class="fase-banner">
+    <span class="fase-nombre">⚔️ Dieciseisavos de Final</span>
+    <span class="fase-fechas">28 Jun – 3 Jul</span>
+  </div>
+  <div class="partido partido-elim"><div class="partido-hora">16:00<small>28 jun</small></div><div class="partido-equipo home">2° Grupo A</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo B</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">20:00<small>28 jun</small></div><div class="partido-equipo home">1° Grupo C</div><div class="vs">VS</div><div class="partido-equipo away">3° D/E/F</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">14:00<small>29 jun</small></div><div class="partido-equipo home">1° Grupo E</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo F</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">17:30<small>29 jun</small></div><div class="partido-equipo home">1° Grupo E</div><div class="vs">VS</div><div class="partido-equipo away">Mejor 3°</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">22:00<small>29 jun</small></div><div class="partido-equipo home">1° Grupo F</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo C</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">14:00<small>30 jun</small></div><div class="partido-equipo home">2° Grupo E</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo I</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">18:00<small>30 jun</small></div><div class="partido-equipo home">1° Grupo I</div><div class="vs">VS</div><div class="partido-equipo away">Mejor 3°</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">22:00<small>30 jun</small></div><div class="partido-equipo home">1° Grupo A</div><div class="vs">VS</div><div class="partido-equipo away">Mejor 3°</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">13:00<small>1 jul</small></div><div class="partido-equipo home">1° Grupo L</div><div class="vs">VS</div><div class="partido-equipo away">Mejor 3°</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">17:00<small>1 jul</small></div><div class="partido-equipo home">1° Grupo G</div><div class="vs">VS</div><div class="partido-equipo away">3° A/E/H/I/J</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">21:00<small>1 jul</small></div><div class="partido-equipo home">1° Grupo D</div><div class="vs">VS</div><div class="partido-equipo away">3° B/E/F/I/J</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">14:00<small>2 jul</small></div><div class="partido-equipo home">2° Grupo K</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo L</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">18:00<small>2 jul</small></div><div class="partido-equipo home">1° Grupo H</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo J</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">22:00<small>2 jul</small></div><div class="partido-equipo home">1° Grupo B</div><div class="vs">VS</div><div class="partido-equipo away">3° E/F/G/I/J</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">15:00<small>3 jul</small></div><div class="partido-equipo home">2° Grupo D</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo G</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">19:00<small>3 jul</small></div><div class="partido-equipo home">1° Grupo J</div><div class="vs">VS</div><div class="partido-equipo away">2° Grupo H</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">22:30<small>3 jul</small></div><div class="partido-equipo home">1° Grupo K</div><div class="vs">VS</div><div class="partido-equipo away">3° D/E/I/J/L</div><div class="partido-meta"></div></div>
+
+  <div class="fase-banner">
+    <span class="fase-nombre">🏟️ Octavos de Final</span>
+    <span class="fase-fechas">4 – 7 Jul</span>
+  </div>
+  <div class="partido partido-elim"><div class="partido-hora">14:00<small>4 jul</small></div><div class="partido-equipo home">G.73</div><div class="vs">VS</div><div class="partido-equipo away">G.75</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">18:00<small>4 jul</small></div><div class="partido-equipo home">G.74</div><div class="vs">VS</div><div class="partido-equipo away">G.77</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">17:00<small>5 jul</small></div><div class="partido-equipo home">G.76</div><div class="vs">VS</div><div class="partido-equipo away">G.78</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">21:00<small>5 jul</small></div><div class="partido-equipo home">G.79</div><div class="vs">VS</div><div class="partido-equipo away">G.80</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">16:00<small>6 jul</small></div><div class="partido-equipo home">G.83</div><div class="vs">VS</div><div class="partido-equipo away">G.84</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">21:00<small>6 jul</small></div><div class="partido-equipo home">G.81</div><div class="vs">VS</div><div class="partido-equipo away">G.82</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">13:00<small>7 jul</small></div><div class="partido-equipo home">G.86</div><div class="vs">VS</div><div class="partido-equipo away">G.88</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">17:00<small>7 jul</small></div><div class="partido-equipo home">G.85</div><div class="vs">VS</div><div class="partido-equipo away">G.87</div><div class="partido-meta"></div></div>
+
+  <div class="fase-banner">
+    <span class="fase-nombre">⚡ Cuartos de Final</span>
+    <span class="fase-fechas">9 – 11 Jul</span>
+  </div>
+  <div class="partido partido-elim"><div class="partido-hora">17:00<small>9 jul</small></div><div class="partido-equipo home">G.89</div><div class="vs">VS</div><div class="partido-equipo away">G.90</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">16:00<small>10 jul</small></div><div class="partido-equipo home">G.93</div><div class="vs">VS</div><div class="partido-equipo away">G.94</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">18:00<small>11 jul</small></div><div class="partido-equipo home">G.91</div><div class="vs">VS</div><div class="partido-equipo away">G.92</div><div class="partido-meta"></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">22:00<small>11 jul</small></div><div class="partido-equipo home">G.95</div><div class="vs">VS</div><div class="partido-equipo away">G.96</div><div class="partido-meta"></div></div>
+
+  <div class="fase-banner">
+    <span class="fase-nombre">🌟 Semifinales</span>
+    <span class="fase-fechas">14 – 15 Jul · Atlanta / Dallas</span>
+  </div>
+  <div class="partido partido-elim"><div class="partido-hora">16:00<small>14 jul</small></div><div class="partido-equipo home">Semifinal 1</div><div class="vs">VS</div><div class="partido-equipo away">Semifinal 2</div><div class="partido-meta"><div class="partido-sede">Atlanta</div></div></div>
+  <div class="partido partido-elim"><div class="partido-hora">16:00<small>15 jul</small></div><div class="partido-equipo home">Semifinal 3</div><div class="vs">VS</div><div class="partido-equipo away">Semifinal 4</div><div class="partido-meta"><div class="partido-sede">Dallas</div></div></div>
+
+  <div class="fase-banner">
+    <span class="fase-nombre">🥉 Tercer Puesto</span>
+    <span class="fase-fechas">18 Jul · Miami</span>
+  </div>
+  <div class="partido partido-elim"><div class="partido-hora">18:00<small>18 jul</small></div><div class="partido-equipo home">Perdedor SF1</div><div class="vs">VS</div><div class="partido-equipo away">Perdedor SF2</div><div class="partido-meta"><div class="partido-sede">Miami</div></div></div>
+
+  <!-- FINAL -->
+  <div class="final-banner">
+    <div>
+      <div class="final-titulo">🏆 GRAN FINAL</div>
+      <div class="final-subtitulo">Domingo 19 de Julio · MetLife Stadium · New Jersey</div>
+    </div>
+  </div>
+  <div class="partido final-partido"><div class="partido-hora">16:00<small>19 jul</small></div><div class="partido-equipo home">Campeón SF1</div><div class="vs" style="color:var(--coral); font-size:1rem; font-weight:800">VS</div><div class="partido-equipo away">Campeón SF2</div><div class="partido-meta"><div class="partido-grupo">FINAL 🏆</div><div class="partido-sede">MetLife, New Jersey</div></div></div>
+
+  <!-- FOOTER -->
+  <div class="pie">
+    <div class="pie-logo">
+      WEST<br>NET
+      <small>Internet Banda Ancha</small>
+    </div>
+    <div class="pie-servicios">
+      <div class="pie-servicio">📡 Fibra Óptica</div>
+      <div class="pie-servicio">📶 Wireless</div>
+      <div class="pie-servicio">🏠 WiFi Home</div>
+      <div class="pie-servicio">🏢 Planes Empresa</div>
+    </div>
+    <div class="pie-contacto">
+      <p>📞 2614055303</p>
+      <p>📱 2614055399</p>
+      <span>westnet.com.ar</span><br>
+      <span>@westnet.mendoza</span>
+    </div>
+  </div>
+
+</div>
+
+</body>
+</html>
